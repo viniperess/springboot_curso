@@ -1,4 +1,4 @@
-package br.edu.ifsul.cstsi.curso.Aluno;
+package br.edu.ifsul.cstsi.curso.aluno;
 
 import org.springframework.stereotype.Controller;
 
@@ -80,7 +80,7 @@ public class AlunoController {
         int opcao = 0;
         do {
             System.out.print("\nDigite o código do aluno (Zero p/sair): ");
-            int codigo = input.nextInt();
+            Long codigo = input.nextLong();
             input.nextLine();
             if (codigo == 0) {
                 opcao = 0;
@@ -148,7 +148,7 @@ public class AlunoController {
         int opcao = 0;
         do {
             System.out.print("\nDigite o código do aluno (Zero p/sair): ");
-            int codigo = input.nextInt();
+            Long codigo = input.nextLong();
             input.nextLine();
             if (codigo == 0) {
                 opcao = 0;
@@ -161,7 +161,7 @@ public class AlunoController {
                     System.out.print("Excluir este aluno? (0-sim/1-não) ");
                     if (input.nextInt() == 0) {
                         input.nextLine();
-                        AlunoService.delete(aluno.getCodAluno());
+                        AlunoService.delete(aluno.getCod_aluno());
                         System.out.println("aluno excluído com sucesso:" + aluno);
                     }
 
@@ -180,7 +180,7 @@ public class AlunoController {
     //opção 5
     private static void selectalunosById() {
         System.out.print("\nDigite o código do aluno: ");
-        Aluno aluno = AlunoService.getAlunoById(input.nextInt());
+        Aluno aluno = AlunoService.getAlunoById(input.nextLong());
         input.nextLine();
         if (aluno != null) {
             System.out.println(aluno);
