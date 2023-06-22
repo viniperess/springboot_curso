@@ -1,6 +1,6 @@
-package br.edu.ifsul.cstsi.curso.Aluno;
+package br.edu.ifsul.cstsi.curso.aluno;
 
-import br.edu.ifsul.cstsi.curso.Matricula.Matricula;
+import br.edu.ifsul.cstsi.curso.matricula.Matricula;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,8 +14,8 @@ import java.util.Collection;
 public class Aluno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "codAluno", nullable = false)
-    private Integer codAluno;
+    @Column(name = "cod_aluno", nullable = false)
+    private Long cod_aluno;
     @Basic
     @Column(name = "cpf", nullable = true, length = 255)
     private String cpf;
@@ -37,13 +37,12 @@ public class Aluno {
     @Override
     public String toString() {
         return "\nAluno{" +
-                "codAluno=" + codAluno +
+                "codAluno=" + cod_aluno +
                 ", cpf='" + cpf + '\'' +
                 ", rg='" + rg + '\'' +
                 ", nome='" + nome + '\'' +
                 ", fone='" + fone + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", matriculasByCodAluno=" + matriculasByCodAluno +
                 '}';
     }
 }
