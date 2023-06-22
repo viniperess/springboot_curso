@@ -1,4 +1,4 @@
-package br.edu.ifsul.cstsi.curso.Aluno;
+package br.edu.ifsul.cstsi.curso.aluno;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class AlunoService {
         return rep.findAll();
     }
 
-    public Aluno getAlunoById(Integer id) {
+    public Aluno getAlunoById(Long id) {
         Optional<Aluno> optional = rep.findById(id);
         if(optional.isPresent()) {
             return optional.get();
@@ -38,15 +38,15 @@ public class AlunoService {
     }
 
     public Aluno insert(Aluno aluno) {
-        Assert.isNull(aluno.getCodAluno(),"Não foi possível inserir o registro");
+        Assert.isNull(aluno.getCod_aluno(),"Não foi possível inserir o registro");
         return rep.save(aluno);
     }
 
     public Aluno update(Aluno aluno) {
-        Assert.notNull(aluno.getCodAluno(),"Não foi possível atualizar o registro");
+        Assert.notNull(aluno.getCod_aluno(),"Não foi possível atualizar o registro");
 
         // Busca o produto no banco de dados
-        Optional<Aluno> optional = rep.findById(aluno.getCodAluno());
+        Optional<Aluno> optional = rep.findById(aluno.getCod_aluno());
         if(optional.isPresent()) {
             Aluno db = optional.get();
             // Copiar as propriedades
@@ -66,7 +66,7 @@ public class AlunoService {
         }
     }
 
-    public void delete(Integer id) {
+    public void delete(Long id) {
         rep.deleteById(id);
     }
 }
